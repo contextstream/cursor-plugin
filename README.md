@@ -8,8 +8,6 @@
   Persistent project memory, semantic code search, and grounded context for Cursor — decisions, lessons, runbooks, and prior sessions surfaced automatically, before your agent touches the repo.
 
   [Website](https://contextstream.io) · [Docs](https://contextstream.io/docs/mcp) · [Pricing](https://contextstream.io/pricing)
-
-  [![Add to Cursor](https://img.shields.io/badge/Add%20to-Cursor-blue?style=for-the-badge)](https://cursor.com/install-mcp?name=contextstream&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLmNvbnRleHRzdHJlYW0uaW8vbWNwP2RlZmF1bHRfY29udGV4dF9tb2RlPWZhc3QiLCJoZWFkZXJzIjp7IlgtU291cmNlLU5hbWUiOiJjdXJzb3ItcGx1Z2luIiwiWC1Tb3VyY2UtVmVyc2lvbiI6IjAuMS4wIn19)
 </div>
 
 ---
@@ -26,13 +24,9 @@ Every new Cursor session starts with everything your team already learned. Conte
 
 ## Install
 
-### Option 1 — Hosted (this plugin)
+### Native binary (recommended)
 
-Installing this plugin connects Cursor to the hosted ContextStream MCP endpoint (`https://mcp.contextstream.io/mcp`). Sign in via OAuth, or grab an API key at [contextstream.io](https://contextstream.io).
-
-### Option 2 — Native binary (recommended for hooks + local indexing)
-
-The native engine is a single Rust binary — no Node, npm, or npx required — with a built-in setup wizard, local index watcher, and agent lifecycle hooks:
+The engine is a single Rust binary — no Node, npm, or npx required — with a built-in setup wizard, local index watcher, native Cursor agent hooks, rules generation, and self-update. None of that comes through a hosted URL, which is why this is the configuration we recommend:
 
 ```bash
 # macOS / Linux
@@ -50,7 +44,42 @@ Then run the wizard — it detects Cursor and writes the MCP config, rules, and 
 contextstream-mcp setup
 ```
 
-Prebuilt binaries ship for macOS (Apple Silicon + Intel), Linux (x64 + arm64), and Windows.
+Or configure manually in `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "contextstream": {
+      "command": "contextstream-mcp",
+      "args": [],
+      "env": {
+        "CONTEXTSTREAM_API_KEY": "${CONTEXTSTREAM_API_KEY}"
+      }
+    }
+  }
+}
+```
+
+Grab an API key at [contextstream.io](https://contextstream.io). Prebuilt binaries ship for macOS (Apple Silicon + Intel), Linux (x64 + arm64), and Windows.
+
+### Zero-install option (hosted)
+
+Prefer not to install anything? Point Cursor at the hosted streamable-HTTP endpoint and sign in via OAuth:
+
+[![Add to Cursor](https://img.shields.io/badge/Add%20to-Cursor-blue?style=for-the-badge)](https://cursor.com/install-mcp?name=contextstream&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLmNvbnRleHRzdHJlYW0uaW8vbWNwP2RlZmF1bHRfY29udGV4dF9tb2RlPWZhc3QiLCJoZWFkZXJzIjp7IlgtU291cmNlLU5hbWUiOiJjdXJzb3ItcGx1Z2luIiwiWC1Tb3VyY2UtVmVyc2lvbiI6IjAuMi4wIn19)
+
+```json
+{
+  "mcpServers": {
+    "contextstream": {
+      "type": "http",
+      "url": "https://mcp.contextstream.io/mcp?default_context_mode=fast"
+    }
+  }
+}
+```
+
+The hosted endpoint covers the core tool surface; native Cursor hooks, the setup wizard, local index watching, and rules generation require the binary.
 
 ## Tools your agent gets
 
