@@ -9,7 +9,7 @@
 
   [Website](https://contextstream.io) · [Docs](https://contextstream.io/docs/mcp) · [Pricing](https://contextstream.io/pricing)
 
-  [![Add to Cursor](https://img.shields.io/badge/Add%20to-Cursor-blue?style=for-the-badge)](cursor://anysphere.cursor-deeplink/mcp/install?name=contextstream&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLmNvbnRleHRzdHJlYW0uaW8vbWNwP2RlZmF1bHRfY29udGV4dF9tb2RlPWZhc3QiLCJoZWFkZXJzIjp7IlgtU291cmNlLU5hbWUiOiJjdXJzb3ItcGx1Z2luIiwiWC1Tb3VyY2UtVmVyc2lvbiI6IjAuMS4wIn19)
+  [![Add to Cursor](https://img.shields.io/badge/Add%20to-Cursor-blue?style=for-the-badge)](https://cursor.com/install-mcp?name=contextstream&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLmNvbnRleHRzdHJlYW0uaW8vbWNwP2RlZmF1bHRfY29udGV4dF9tb2RlPWZhc3QiLCJoZWFkZXJzIjp7IlgtU291cmNlLU5hbWUiOiJjdXJzb3ItcGx1Z2luIiwiWC1Tb3VyY2UtVmVyc2lvbiI6IjAuMS4wIn19)
 </div>
 
 ---
@@ -60,7 +60,7 @@ Your AI uses these automatically. You just code.
 
 ## How it works
 
-ContextStream is a managed service. This plugin is the public Cursor packaging; the engine is a closed-source, high-performance Rust MCP server (stdio + streamable HTTP) serving sub-100 ms p50 context retrieval on the hot agent-loop path. The same binary powers Claude Code, Windsurf, VS Code/Copilot, Codex CLI, OpenCode, Cline, Roo Code, Kilo Code, Aider, and Antigravity — your memory follows you across every tool.
+ContextStream is a managed service. This plugin is the public Cursor packaging; the engine is a closed-source, high-performance Rust MCP server (stdio + streamable HTTP) — sub-100 ms p50 context retrieval on the hot agent-loop path in internal benchmarks. The same binary powers Claude Code, Windsurf, VS Code/Copilot, Codex CLI, OpenCode, Cline, Roo Code, Kilo Code, Aider, and Antigravity — your memory follows you across every tool.
 
 ## Links
 
