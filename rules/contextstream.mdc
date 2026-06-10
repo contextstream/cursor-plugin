@@ -1,0 +1,14 @@
+---
+description: Use ContextStream for project memory, grounded context, and code search
+alwaysApply: true
+---
+
+# ContextStream
+
+This workspace has ContextStream connected via MCP. Use it as the first stop for context, not the last.
+
+- At the start of a session, call `init`, then `context` with the user's message to load workspace memory, prior decisions, lessons, and task-relevant rules.
+- Before searching files with built-in tools, call `search` (modes: auto, keyword, semantic, hybrid, pattern). It returns ranked, indexed results with real file paths and line numbers.
+- When the user references past work ("last time", "we decided", "pick up where we left off"), call `session` with `action="recall"` — past session transcripts and snapshots are indexed and queryable.
+- Record durable knowledge as it happens: decisions and lessons via `session` (`capture`, `capture_lesson`), docs and tasks via `memory`, plans via `session` (`capture_plan`).
+- For "why did we choose X?" or "how do we do Y here?" questions, check ContextStream memory (decisions, docs, lessons) before re-deriving the answer from source.
