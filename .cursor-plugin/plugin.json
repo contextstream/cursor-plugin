@@ -1,7 +1,7 @@
 {
   "name": "contextstream",
   "description": "Persistent project memory, semantic code search, and instant grounded context for Cursor. Decisions, lessons, and prior sessions surface automatically — your agent stops starting cold.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "ContextStream",
     "email": "support@contextstream.io",
@@ -18,5 +18,5 @@
     "agent-memory",
     "mcp"
   ],
-  "logo": "https://contextstream.io/logo.png"
+  "logo": "https://contextstream.io/logo-hex.png"
 }
