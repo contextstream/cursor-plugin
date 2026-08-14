@@ -1,11 +1,7 @@
 {
   "mcpServers": {
     "contextstream": {
-      "command": "contextstream-mcp",
-      "args": [],
-      "env": {
-        "CONTEXTSTREAM_API_KEY": "${CONTEXTSTREAM_API_KEY}"
-      }
+      "url": "https://mcp.contextstream.io/mcp"
     }
   }
 }
