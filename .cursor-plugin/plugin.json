@@ -1,7 +1,7 @@
 {
   "name": "contextstream",
-  "description": "Persistent project memory, semantic code search, and instant grounded context for Cursor. Decisions, lessons, and prior sessions surface automatically — your agent stops starting cold.",
-  "version": "0.3.0",
+  "description": "Shared project memory, source-backed briefs, decision checks, and handoffs for AI agents. Connect to ContextStream through hosted MCP and OAuth.",
+  "version": "0.4.0",
   "author": {
     "name": "ContextStream",
     "email": "support@contextstream.io",
@@ -16,7 +16,13 @@
     "semantic-search",
     "knowledge-graph",
     "agent-memory",
-    "mcp"
+    "mcp",
+    "project-brief",
+    "decision-check",
+    "handoff"
   ],
-  "logo": "https://contextstream.io/logo-hex.png"
+  "logo": "https://contextstream.io/logo-hex.png",
+  "rules": "./rules/",
+  "skills": "./skills/",
+  "mcpServers": "mcp.json"
 }
