@@ -1,24 +1,76 @@
-<div align="center">
-  <img src="https://contextstream.io/logo-hex.png" alt="ContextStream" width="120" />
+# ContextStream — project knowledge that carries forward
 
-  # ContextStream for Cursor
+<img src="https://contextstream.io/logo-hex.png" alt="ContextStream" width="96" />
 
-  **Stop starting AI agents cold.**
+**Know what changed. Respect what was decided. Continue without rebuilding the brief.**
 
-  Persistent project memory, semantic code search, and grounded context for Cursor — decisions, lessons, runbooks, and prior sessions surfaced automatically, before your agent touches the repo.
+Connect your existing project knowledge to your agent through hosted MCP and
+OAuth. This package supplies seven focused workflows; the hosted service supplies
+retrieval, memory, search, and available graph/answer capabilities. It complements
+native agent memory with knowledge created across tools.
 
-  [Website](https://contextstream.io) · [Docs](https://contextstream.io/docs/mcp) · [Pricing](https://contextstream.io/pricing)
-</div>
+**Release status:** package under review. Live Cursor/Grok acceptance and public
+marketplace approval remain separate gates. No Grok installation or feature parity
+is claimed by the presence of these files. See [Grok setup](docs/grok-bot.md).
 
----
+## Start with one useful result
 
-## Marketplace install
+Authenticate through the host, choose an existing authorized project, then ask:
 
-This plugin connects Cursor to the hosted ContextStream MCP at `https://mcp.contextstream.io/mcp`. Sign in with OAuth when Cursor prompts you. No local binary and no API key in config.
+> Brief me on this project and the decision I should know before making a change.
+> Show the sources and anything you could not verify.
 
-After it is listed on the [Cursor Marketplace](https://cursor.com/marketplace), install **ContextStream** from Customize → Plugins.
+Already connected? Do not repeat setup: go straight to the appropriate skill.
+New or empty workspace? Use [first-run guidance](docs/first-run.md) or the
+[synthetic Harbor Export demo](examples/harbor-export/README.md).
 
-Until then, add the repo as a local plugin or point Cursor at the hosted endpoint:
+## Skills
+
+| Skill | User outcome |
+| --- | --- |
+| [context-check](skills/context-check/SKILL.md) | Connection, project, and knowledge readiness; one useful next step |
+| [project-brief](skills/project-brief/SKILL.md) | Current state or recent changes interpreted for the reader, with sources |
+| [decision-check](skills/decision-check/SKILL.md) | Catch conflicts between a plan and current approved constraints |
+| [project-resume](skills/project-resume/SKILL.md) | Recover a work thread and distinguish completed, unverified, and remaining work |
+| [change-impact](skills/change-impact/SKILL.md) | Combine code search, available dependency evidence, and project decisions |
+| [project-handoff](skills/project-handoff/SKILL.md) | Draft a useful handoff; save only the authorized artifact and verify the result |
+| [memory-review](skills/memory-review/SKILL.md) | Inspect stale/conflicting knowledge and record approved, evidence-bound corrections |
+
+Only load the skill the task needs. These are workflows, not seven new servers.
+A missing graph or optional answer tool is reported honestly; it does not break
+basic retrieval or turn an incomplete check into a confident answer. See the
+[source-reviewed capability map](docs/capability-map.md).
+
+## Requirements and privacy
+
+Use your own ContextStream account and an authorized project with relevant
+knowledge. The client must support this package's remote MCP/OAuth setup.
+A cloud Bot cannot automatically access a laptop's checkout. This plugin installs
+no watcher, executable MCP process, background schedule, or telemetry collector.
+
+**Read-first is a workflow policy, not read-only authorization.** Hosted queries
+and supplied context are processed, and transcript persistence can apply under
+service settings. Read [data handling](docs/data-handling.md) before private use.
+Business-record writes and public sharing require specific authorization.
+The backend and host, not the Markdown instructions, enforce permissions.
+
+The package is MIT licensed. ContextStream [service usage](https://contextstream.io/pricing)
+and your client subscription are separate. No Coflow or ContextCode installation
+is required. Do not include customer records in a public Bot template.
+
+## Install in Cursor
+
+When this version is available in the marketplace, install ContextStream through
+Customize and authenticate in the browser. This README is not a listing-status
+assertion. For local testing, follow [Cursor's plugin guide](https://cursor.com/docs/plugins):
+copy the reviewed repository contents, including `.cursor-plugin`, into a new
+`~/.cursor/plugins/local/contextstream` directory. Review existing installations
+before replacing them. Reload and verify one server, one rule, and seven skills.
+Do not bypass administrator restrictions; an installed marketplace copy may take
+precedence over a same-name local copy. Resolve duplicate MCP registrations.
+Use the host's `/` skill selector; do not assume identical namespacing across clients.
+
+## MCP-only clients
 
 ```json
 {
@@ -30,39 +82,30 @@ Until then, add the repo as a local plugin or point Cursor at the hosted endpoin
 }
 ```
 
-Create an account at [contextstream.io](https://contextstream.io) if you do not have one.
+Client syntax can differ. This alone installs neither skills nor the Cursor rule.
+Never paste credentials into chat or commit them. Follow the current
+[MCP documentation](https://contextstream.io/docs/mcp) for optional native/local sync.
 
-## What you get
+## Grok Bot
 
-Every new Cursor session starts with what your team already learned. ContextStream turns repo decisions, guardrails, prior fixes, runbooks, and agent corrections into shared project memory.
+The [Project Brief & Handoff profile](bots/project-brief-handoff.md) routes normal
+requests into the workflows. It is a human-readable template, not an undocumented
+import manifest. Use the [supported setup and test path](docs/grok-bot.md).
 
-- **Smart context on every turn** — one `context` call returns task-relevant rules, prior decisions, and lessons, pre-ranked for the current message.
-- **Semantic + keyword code search** — ranked, indexed answers with file paths and line numbers.
-- **Memory across sessions** — decisions, lessons, docs, plans, tasks, and transcripts are captured and recalled when relevant.
-- **Code graph** — blast radius, cycles, unused code, complexity trends.
-- **Team knowledge** — shared workspace memory plus GitHub, Slack, Notion, Linear, Jira, and Figma integrations.
+## Validate before release
 
-The plugin also ships an always-on rule (`rules/contextstream.mdc`) so the agent uses ContextStream first, not last.
+Python 3.10+, no dependencies or credentials needed for offline checks:
 
-## Optional: native binary
-
-The hosted endpoint covers the core tool surface. The native Rust binary adds a setup wizard, local index watcher, Cursor agent hooks, and rules generation. It is a separate install, not what this marketplace plugin ships:
-
-```bash
-curl -fsSL https://contextstream.io/scripts/mcp.sh | bash
-contextstream-mcp setup
+```sh
+python3 scripts/validate_plugin.py
+python3 -m unittest discover -s tests -v
 ```
 
-## Tools
+An optional [protocol probe](docs/protocol-probe.md) checks initialization and
+advertised tools, without calling project tools. A probe pass is NOT a workflow
+or OAuth-browser pass. Complete [manual validation](docs/manual-validation.md) and
+the [scenario evaluation and fail-closed release gate](docs/evaluation.md).
 
-`init` · `context` · `search` · `session` · `memory` · `graph` · `project` · `workspace` · `vcs` · `integration` · `media` · `skill` · `entity` · `qa`
-
-## Links
-
-- Homepage: https://contextstream.io
-- Docs (Cursor): https://contextstream.io/docs/mcp#cursor-vscode
-- Support: support@contextstream.io
-
-## License
-
-This plugin packaging is MIT licensed. The ContextStream service is a commercial product — see [pricing](https://contextstream.io/pricing).
+Follow the [marketplace checklist](docs/marketplace-launch.md) only after review.
+No script in this repository publishes, merges, submits, sends outreach, or buys usage.
+Support: support@contextstream.io. [License](LICENSE).
