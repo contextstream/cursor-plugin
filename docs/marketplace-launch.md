@@ -1,68 +1,65 @@
 # Marketplace launch checklist
 
-## Positioning and listing copy
+## Positioning
 
-Plugin title: **ContextStream**
+**ContextStream — project knowledge that carries forward.**
+Source-backed briefs, decision checks, cross-session continuation, code-impact
+assessment, and verified handoffs through the user's authorized project context.
+The Bot profile remains **Project Brief & Handoff — by ContextStream**, with
+advanced workflows available when relevant rather than a feature menu up front.
 
-Description: **Shared project knowledge for AI agents. Create source-backed
-project briefs, check plans against approved decisions, and prepare useful
-handoffs through your authorized ContextStream connection.**
+Complement Grok's native memory with knowledge created across tools. Do not claim
+Grok lacks memory, the plugin is endorsed, every hosted tool is exposed, or this
+PR proves live compatibility. Do not require Coflow or ContextCode. Package
+licensing, ContextStream service usage, and client subscriptions are separate.
 
-Bot: **Project Brief & Handoff — by ContextStream**.
-The product complements native Bot memory with knowledge created across tools.
-Do not claim Grok lacks memory, ContextStream is endorsed, or this PR establishes
-live compatibility. Do not require Coflow or ContextCode to try the integration.
-Package access is MIT licensed; hosted service usage and client subscriptions
-are separate. Link current pricing rather than hard-code allowances.
+## Submission gates
 
-## Distinct release gates
+- [ ] Offline package, regression, and demo-fixture tests pass on the exact commit.
+- [ ] Maintainer approves the logo and a stable public/local asset; the existing
+      remote artwork is intentionally retained, not redesigned by this change.
+- [ ] Actual installation and seven-skill discovery pass independently in Cursor
+      and the platform-supported Grok preview/install path.
+- [ ] Complete [manual acceptance](manual-validation.md) and all
+      [scenario requirements](evaluation.md), including repeated continuity cases.
+- [ ] Human review of sanitized evidence and the fail-closed release-record check
+      pass. Metadata-probe success alone does not satisfy any client workflow gate.
+- [ ] Public-sharing preview contains only clean configuration/synthetic examples;
+      recipient-owned authentication is required; no inherited private access.
+- [ ] Confirm existing application status, then submit/update through
+      [Cursor's form](https://cursor.com/marketplace/publish). No duplicate submission.
+- [ ] Record approval of this exact version separately from older listings.
+- [ ] Confirm the separate curated Grok Bot-directory review process. Sharing
+      a Bot does not guarantee directory inclusion or a featured slot.
 
-- [ ] Package checks pass on the exact proposed commit.
-- [ ] Maintainer reviews the existing logo and confirms its public availability.
-      The existing remote logo URL is retained in this PR; a committed approved
-      asset is recommended before submission. Do not invent replacement branding.
-- [ ] Cursor local smoke test passes; retain sanitized evidence.
-- [ ] Grok supported preview/install path is established and tested.
-- [ ] OAuth, permissions, skills, citations, writes, and revocation pass the
-      [manual tests](manual-validation.md). Unknown is not pass.
-- [ ] Submit or update the public repository through
-      [Cursor's publishing form](https://cursor.com/marketplace/publish).
-      Check for an existing submission before creating a duplicate.
-- [ ] Record approval of this version separately from acceptance of an older version.
-- [ ] Create and review a clean public Bot share link using the actual supported UI.
-- [ ] Ask the Grok Bot team for the curated directory's review process; public
-      sharing does not establish directory inclusion or featured placement.
+No script or PR merge submits, publishes, sends outreach, or changes billing.
 
-Sources: [Cursor submission reference](https://cursor.com/docs/reference/plugins)
-and [Grok Bot sharing documentation](https://docs.x.ai/grok-bot/bots).
-Neither GitHub merge nor a successful local check submits this package.
+## Demonstration
 
-## Demonstration and distribution
+Show a decision made outside Grok, retrieved with sources inside a fresh Grok
+session, used to catch a conflicting change, then preserved in an explicitly
+approved handoff that another client retrieves. Publish the fixture, versions,
+limits, and failures. Give a comparison baseline the same evidence and budget.
+Never call unit-test totals a memory-accuracy benchmark.
 
-Use the [Harbor Export synthetic project](../examples/harbor-export/README.md).
-Show a decision saved outside Grok, retrieved with evidence in a fresh Grok task,
-then an explicitly approved handoff reused by another supported client. Show the
-same evidence to any comparison baseline. Publish versions, failures, and limits;
-do not describe a synthetic example as customer proof.
+Recruit five consenting pilot users. Measure first useful cited answer, successful
+continuation, relevant decisions reused, and returning project use, not installs
+alone. Record performance/cost observations without collecting private prompts
+in marketing analytics. Ask creators to test one concrete continuity workflow.
 
-Recruit five consenting existing users for a pilot. Measure successful project
-connection, useful cited briefs, and subsequent context reuse, not installs alone.
-Do not add private prompt/transcript content to marketing analytics.
-
-For creators, offer one practical workflow test instead of generic promotion.
-The package should improve their Bot's access to project knowledge rather than
-require a switch to ContextStream's own applications.
-
-## Marketplace-team message draft — not sent
+## Marketplace-team message — draft, not sent
 
 Subject: ContextStream plugin and Project Brief & Handoff Bot review
 
-We maintain ContextStream's hosted OAuth MCP and a public Cursor plugin. We are
-preparing a focused Bot that retrieves project decisions, constraints, and lessons
-created across tools and returns source-backed briefs and handoffs. It complements
-native Bot memory. What is the supported preview and review path for the plugin
-in Grok Bot, and the separate submission process for curated Bot-directory inclusion?
+We maintain ContextStream's hosted OAuth MCP and public Cursor plugin. We are
+preparing a focused Bot that retrieves project decisions, lessons, and constraints
+created across tools, checks planned work, and prepares source-backed handoffs.
+It complements native Bot memory. What are the supported preview/review path for
+the plugin in Grok Bot and the separate curated Bot-directory submission process?
 
-Supply the reviewed repository commit, sanitized acceptance record, data-handling
-information, and a working share link when available. Remove unverified claims
-before sending. No message, submission, or public Bot is created by this package.
+Attach the reviewed commit, sanitized live acceptance record, data-handling
+information, demonstration, and working share link only when actually available.
+Remove unverified claims before sending.
+
+References: [plugin format/submission](https://cursor.com/docs/reference/plugins),
+[Grok Bot sharing](https://docs.x.ai/grok-bot/bots).

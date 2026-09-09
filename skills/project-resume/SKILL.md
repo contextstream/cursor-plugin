@@ -1,9 +1,9 @@
 ---
-name: "decision-check"
-description: "Check a proposed plan against current ContextStream decisions, constraints, and lessons before implementation; show conflicts and missing evidence."
+name: "project-resume"
+description: "Resume work across sessions or agents from ContextStream history, decisions, and handoffs; reconstruct the next step without repeating completed work."
 ---
 
-# Decision Check
+# Project Resume
 
 ## Scope and data handling
 
@@ -39,25 +39,23 @@ Optional missing tools reduce coverage; they do not justify invented results.
 
 ## Workflow
 
-1. Obtain the proposed plan and intended project. Reading a plan does not
-   authorize executing it, saving it, or promoting it to an approved decision.
-2. Retrieve current decisions, constraints, rationale, and supersession history.
-   When the source is consequential, inspect the original record rather than
-   treating a summary as independent corroboration.
-3. Classify each relevant step as aligned, conflicting, uncertain, or not checked.
-   A search returning nothing is not clearance. Explicitly retain conflicting
-   approved records for a human decision rather than inventing precedence.
-4. Suggest the smallest practical correction and a verification step. Distinguish
-   a proposed revision from a saved or approved replacement.
-5. Return the review without modifying the plan, code, or source decisions.
+1. Resolve the intended project and work thread from the user's reference. Reuse
+   attached task/plan identifiers or a verified binding; ask if several threads
+   are genuinely ambiguous. Do not replace a specific task with the whole backlog.
+2. Recall the relevant prior session or handoff with exposed session capabilities,
+   then refresh current decisions, task state, and source/branch information.
+   A historic "done" statement is not current verification or evidence of a merge.
+3. Separate **verified completed**, **reported but unverified**, **in progress**,
+   **blocked**, and **superseded**. Preserve exact authorized task references.
+4. Identify what changed since the handoff and the single best next action.
+   Never replay an already completed action just to rebuild a conversation.
+5. Answer with a compact continuation brief. "Where were we?" is retrieval,
+   not permission to deploy, edit, contact someone, or run background work.
+   Execute only when the user's request and host permissions authorize execution.
 
 ## Output
 
-A short recommendation plus **plan step / applicable decision / assessment /
-source / proposed correction**. Close with unresolved authority questions and
-coverage limits. Do not present this as a guarantee of correctness or compliance.
-
-## Example
-
-"Check the plan to remove legacy export before implementation."
-Flag conflicts only from the selected project's evidence, not generic guesses.
+**Where we left off / What changed / What remains / Recommended next step**,
+with source references and verification limits. Recovered source knowledge should
+work without pasting an old transcript into the new client. State missing history
+plainly instead of pretending that every session was captured.

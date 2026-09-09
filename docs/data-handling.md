@@ -10,8 +10,10 @@ ContextStream MCP. Returned project information enters the requesting agent's
 conversation and may be processed or retained by that host and its providers.
 Use only information the user has authorized for those systems.
 
-The package includes no API key, local process, file watcher, lifecycle hook,
-automatic indexing script, or telemetry collector. This does **not** mean a
+Installing the plugin starts no local MCP process, file watcher, lifecycle hook,
+automatic indexing script, or telemetry collector, and ships no credential.
+The optional operator-run protocol probe is separate: it makes only metadata
+requests after explicit network opt-in; see [probe details](protocol-probe.md). This does **not** mean a
 hosted tool call has no persistence effects. ContextStream's open-source client
 [data-handling documentation](https://github.com/contextstream/mcp-server/blob/main/docs/data-handling.md)
 describes transcript exchange saving enabled by default when applicable.

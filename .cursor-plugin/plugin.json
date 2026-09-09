@@ -1,6 +1,6 @@
 {
   "name": "contextstream",
-  "description": "Shared project memory, source-backed briefs, decision checks, and handoffs for AI agents. Connect to ContextStream through hosted MCP and OAuth.",
+  "description": "Shared project knowledge for AI agents: cited briefs, cross-session recall, decision checks, change-impact analysis, and verified handoffs through hosted MCP.",
   "version": "0.4.0",
   "author": {
     "name": "ContextStream",
@@ -19,7 +19,8 @@
     "mcp",
     "project-brief",
     "decision-check",
-    "handoff"
+    "handoff",
+    "change-impact"
   ],
   "logo": "https://contextstream.io/logo-hex.png",
   "rules": "./rules/",

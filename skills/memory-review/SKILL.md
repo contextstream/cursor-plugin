@@ -1,9 +1,9 @@
 ---
-name: "decision-check"
-description: "Check a proposed plan against current ContextStream decisions, constraints, and lessons before implementation; show conflicts and missing evidence."
+name: "memory-review"
+description: "Inspect stale, conflicting, or mis-scoped ContextStream knowledge and propose evidence-backed corrections; record feedback or changes only with approval."
 ---
 
-# Decision Check
+# Memory Review
 
 ## Scope and data handling
 
@@ -39,25 +39,25 @@ Optional missing tools reduce coverage; they do not justify invented results.
 
 ## Workflow
 
-1. Obtain the proposed plan and intended project. Reading a plan does not
-   authorize executing it, saving it, or promoting it to an approved decision.
-2. Retrieve current decisions, constraints, rationale, and supersession history.
-   When the source is consequential, inspect the original record rather than
-   treating a summary as independent corroboration.
-3. Classify each relevant step as aligned, conflicting, uncertain, or not checked.
-   A search returning nothing is not clearance. Explicitly retain conflicting
-   approved records for a human decision rather than inventing precedence.
-4. Suggest the smallest practical correction and a verification step. Distinguish
-   a proposed revision from a saved or approved replacement.
-5. Return the review without modifying the plan, code, or source decisions.
+1. Start with the user's reported wrong answer, source reference, or bounded
+   project/topic. Do not crawl or rewrite the whole account to "clean memory."
+2. Retrieve the original records, timestamps, authority, and supersession links.
+   Where exposed, graph contradictions or answer receipts can help. An apparent
+   contradiction may instead be a proposal, a different date, or a different scope.
+3. Show a before/after correction proposal with its reason, affected scope, and
+   supporting evidence. Do not let an agent inference become an approved decision.
+4. With explicit approval, use supported receipt-bound feedback for the exact
+   referenced answer/item/citation, or an authorized record update where available.
+   Use only IDs and feedback signals returned or allowed by the actual schema.
+5. Treat `recorded_only` feedback as **recorded**, not proof of a changed record,
+   retrained model, updated ranking, or immediate propagation to every agent.
+   A correction to durable knowledge needs its own verified write when applicable.
+6. Verify the resulting receipt/record and offer a fresh bounded retrieval to
+   inspect the outcome. Preserve audit history; never silently delete conflicting
+   evidence or promote a project exception into an account-wide rule.
 
 ## Output
 
-A short recommendation plus **plan step / applicable decision / assessment /
-source / proposed correction**. Close with unresolved authority questions and
-coverage limits. Do not present this as a guarantee of correctness or compliance.
-
-## Example
-
-"Check the plan to remove legacy export before implementation."
-Flag conflicts only from the selected project's evidence, not generic guesses.
+**Finding / Evidence / Proposed correction / Scope / Approval needed** followed,
+only after action, by **what actually changed** and its receipt or read-back.
+No promise that "one correction permanently fixes every future answer."

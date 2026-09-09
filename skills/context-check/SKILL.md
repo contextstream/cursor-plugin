@@ -1,9 +1,9 @@
 ---
-name: "decision-check"
-description: "Check a proposed plan against current ContextStream decisions, constraints, and lessons before implementation; show conflicts and missing evidence."
+name: "context-check"
+description: "Check ContextStream connection, selected project, and available knowledge; help a new user reach a first cited answer without reindexing or changing setup."
 ---
 
-# Decision Check
+# Context Check
 
 ## Scope and data handling
 
@@ -39,25 +39,25 @@ Optional missing tools reduce coverage; they do not justify invented results.
 
 ## Workflow
 
-1. Obtain the proposed plan and intended project. Reading a plan does not
-   authorize executing it, saving it, or promoting it to an approved decision.
-2. Retrieve current decisions, constraints, rationale, and supersession history.
-   When the source is consequential, inspect the original record rather than
-   treating a summary as independent corroboration.
-3. Classify each relevant step as aligned, conflicting, uncertain, or not checked.
-   A search returning nothing is not clearance. Explicitly retain conflicting
-   approved records for a human decision rather than inventing precedence.
-4. Suggest the smallest practical correction and a verification step. Distinguish
-   a proposed revision from a saved or approved replacement.
-5. Return the review without modifying the plan, code, or source decisions.
+1. Discover the tools actually exposed by the host. Use available help/auth/version
+   reads to check the account privately; do not print raw tokens, private account
+   details, or the complete catalog of unrelated projects.
+2. Resolve the existing project binding. A request to select a project permits a
+   minimal authorized picker, not automatic selection of the first project.
+3. Inspect existing project/index status when available. A successful connection
+   is not proof of useful content, indexing completeness, or freshness.
+4. Run one small, scoped question about an existing source. Distinguish a real
+   cited answer from an authentication, setup, or upgrade message returned in a
+   nominally successful tool response.
+5. Return a short status card: **Connected / Action needed / Partially ready**,
+   selected project, observed coverage, and the single most useful next step.
+   Never display **Ready** solely because a tool exists.
+6. If the project is empty, explain how to connect one source or use the public
+   synthetic demo. Obtain approval before importing or creating anything. Do not
+   run installers, provision a workspace, or change billing as a diagnostic step.
 
-## Output
+## First useful request
 
-A short recommendation plus **plan step / applicable decision / assessment /
-source / proposed correction**. Close with unresolved authority questions and
-coverage limits. Do not present this as a guarantee of correctness or compliance.
-
-## Example
-
-"Check the plan to remove legacy export before implementation."
-Flag conflicts only from the selected project's evidence, not generic guesses.
+Ask: "Brief me on this project and one decision I should know, with sources."
+The host's cloud computer cannot read a laptop's files merely because MCP works.
+See [first-run guidance](../../docs/first-run.md) for empty-state and recovery UX.

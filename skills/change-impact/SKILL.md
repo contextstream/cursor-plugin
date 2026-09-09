@@ -1,9 +1,9 @@
 ---
-name: "decision-check"
-description: "Check a proposed plan against current ContextStream decisions, constraints, and lessons before implementation; show conflicts and missing evidence."
+name: "change-impact"
+description: "Assess an intended change using ContextStream code search, dependency graphs, decisions, and lessons; explain affected areas and checks before editing."
 ---
 
-# Decision Check
+# Change Impact
 
 ## Scope and data handling
 
@@ -39,25 +39,22 @@ Optional missing tools reduce coverage; they do not justify invented results.
 
 ## Workflow
 
-1. Obtain the proposed plan and intended project. Reading a plan does not
-   authorize executing it, saving it, or promoting it to an approved decision.
-2. Retrieve current decisions, constraints, rationale, and supersession history.
-   When the source is consequential, inspect the original record rather than
-   treating a summary as independent corroboration.
-3. Classify each relevant step as aligned, conflicting, uncertain, or not checked.
-   A search returning nothing is not clearance. Explicitly retain conflicting
-   approved records for a human decision rather than inventing precedence.
-4. Suggest the smallest practical correction and a verification step. Distinguish
-   a proposed revision from a saved or approved replacement.
-5. Return the review without modifying the plan, code, or source decisions.
+1. Resolve the project and concrete proposed change. Confirm the branch/revision
+   if it affects correctness. Do not pretend the cloud host has a local checkout.
+2. Use indexed semantic/hybrid search to locate actual code targets. Preserve
+   returned paths and line numbers; never guess file names or graph node IDs.
+3. If exposed and permitted, inspect graph impact, dependencies, related nodes,
+   and graph freshness for the located targets. Bound traversal to the task.
+   Match the current schema; do not call a nonexistent "blast_radius" action.
+4. Combine observed dependencies with current project decisions and prior lessons.
+   Label graph-confirmed impact separately from code-inferred or unverified impact.
+   A stale/missing graph permits a qualified search-based assessment, not a claim
+   that nothing depends on the target or that the complete graph was checked.
+5. Return the lowest-risk plan and concrete tests for the named affected paths.
+   Reading for impact does not authorize edits, indexing, deployments, or jobs.
 
 ## Output
 
-A short recommendation plus **plan step / applicable decision / assessment /
-source / proposed correction**. Close with unresolved authority questions and
-coverage limits. Do not present this as a guarantee of correctness or compliance.
-
-## Example
-
-"Check the plan to remove legacy export before implementation."
-Flag conflicts only from the selected project's evidence, not generic guesses.
+**Change / Affected areas / Constraints / Suggested tests / Unknowns**, citing
+actual code and decision evidence. Include branch/index coverage where provided.
+An empty dependency list is not proof that a breaking change is safe.
